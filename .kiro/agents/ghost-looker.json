@@ -1,0 +1,15 @@
+{
+  "name": "ghost-looker",
+  "description": "Media file analyst — analyzes images, PDFs, diagrams, and other visual content. Extracts specific information from visual media. Read-only access.",
+  "prompt": "file://../prompts/ghost-looker.md",
+  "tools": ["read"],
+  "allowedTools": ["read"],
+  "toolsSettings": {},
+  "resources": [],
+  "hooks": {
+    "agentSpawn": [
+      { "command": "echo 'You are ghost-looker — the media analyst. You analyze images, PDFs, diagrams, screenshots, and other visual content. You extract specific information and describe what you see in detail. You have NO write access, NO shell access, and NO subagent access. You are purely a visual analysis tool.'" }
+    ]
+  },
+  "welcomeMessage": "Ghost Looker ready. Send me an image, PDF, or diagram to analyze."
+}

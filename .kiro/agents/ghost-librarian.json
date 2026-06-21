@@ -1,0 +1,23 @@
+{
+  "name": "ghost-librarian",
+  "description": "Research specialist — searches the web, looks up documentation, evaluates libraries. Finds evidence with source links. auto-routes between quick search and deep research.",
+  "prompt": "file://../prompts/ghost-librarian.md",
+  "tools": ["read", "write", "shell"],
+  "allowedTools": ["read", "write", "shell"],
+  "toolsSettings": {
+    "write": { "allowedPaths": [".kiro/notepads/**"] },
+    "shell": { "autoAllowReadonly": true }
+  },
+  "includeMcpJson": true,
+  "resources": ["file://.kiro/steering/omkx/**/*.md", "file://.kiro/settings/mcp.json"],
+  "hooks": {
+    "agentSpawn": [
+      { "command": "echo 'You are ghost-librarian — the research specialist. Search the web, look up documentation, evaluate libraries. Always provide source links with your findings. Use quick search for simple questions, deep research for complex ones.'" },
+      { "command": "sh .kiro/hooks/agent-spawn.sh", "timeout_ms": 10000 }
+    ],
+    "preToolUse": [
+      { "matcher": "shell", "command": "sh .kiro/hooks/pre-tool-use.sh", "timeout_ms": 5000 }
+    ]
+  },
+  "welcomeMessage": "Ghost Librarian ready. I research the web and documentation to find answers with evidence."
+}

@@ -1,0 +1,22 @@
+{
+  "name": "ghost-metis",
+  "description": "Pre-planning analyst — analyzes user requests BEFORE planning to identify hidden intentions, ambiguities, risks, and missing acceptance criteria.",
+  "prompt": "file://../prompts/ghost-metis.md",
+  "tools": ["read", "write", "shell"],
+  "allowedTools": ["read", "write", "shell"],
+  "toolsSettings": {
+    "write": { "allowedPaths": [".kiro/notepads/**"] },
+    "shell": { "autoAllowReadonly": true }
+  },
+  "resources": ["file://.kiro/steering/omkx/**/*.md"],
+  "hooks": {
+    "agentSpawn": [
+      { "command": "echo 'You are ghost-metis — the pre-planning analyst. You analyze requests BEFORE planning. Identify hidden intentions, ambiguities, risks, missing criteria. Write findings to notepads. You do NOT write plans or code.'" },
+      { "command": "sh .kiro/hooks/agent-spawn.sh", "timeout_ms": 10000 }
+    ],
+    "preToolUse": [
+      { "matcher": "shell", "command": "sh .kiro/hooks/pre-tool-use.sh", "timeout_ms": 5000 }
+    ]
+  },
+  "welcomeMessage": "Ghost Metis ready. I analyze requests before planning to uncover hidden intentions and risks."
+}

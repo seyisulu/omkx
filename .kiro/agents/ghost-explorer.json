@@ -1,0 +1,22 @@
+{
+  "name": "ghost-explorer",
+  "description": "Codebase explorer — finds files, maps project structure, identifies patterns. Read-only analysis of the repository.",
+  "prompt": "file://../prompts/ghost-explorer.md",
+  "tools": ["read", "write", "shell", "glob", "grep"],
+  "allowedTools": ["read", "glob", "grep", "shell"],
+  "toolsSettings": {
+    "write": { "allowedPaths": [".kiro/notepads/**"] },
+    "shell": { "autoAllowReadonly": true }
+  },
+  "resources": ["skill://.kiro/skills/**/SKILL.md"],
+  "hooks": {
+    "agentSpawn": [
+      { "command": "echo 'You are ghost-explorer — the codebase search specialist. You find files, map structure, and report findings with exact paths and line numbers. You do NOT write code or modify files (except notepads).'" },
+      { "command": "sh .kiro/hooks/agent-spawn.sh", "timeout_ms": 10000 }
+    ],
+    "preToolUse": [
+      { "matcher": "shell", "command": "sh .kiro/hooks/pre-tool-use.sh", "timeout_ms": 5000 }
+    ]
+  },
+  "welcomeMessage": "Ghost Explorer ready. I find files, map structure, and report findings."
+}

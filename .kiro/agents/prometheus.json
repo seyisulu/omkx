@@ -1,0 +1,30 @@
+{
+  "name": "prometheus",
+  "description": "Prometheus the Planner — gathers information, interviews users, delegates research, and generates structured execution plans",
+  "prompt": "file://../prompts/prometheus.md",
+  "tools": ["read", "write", "shell", "use_subagent"],
+  "allowedTools": ["read", "write", "use_subagent"],
+  "toolsSettings": {
+    "write": { "allowedPaths": [".kiro/plans/**", ".kiro/notepads/**"] },
+    "shell": { "autoAllowReadonly": true },
+    "subagent": {
+      "trustedAgents": ["ghost-explorer", "ghost-librarian", "ghost-metis", "ghost-momus"],
+      "availableAgents": ["ghost-explorer", "ghost-librarian", "ghost-metis", "ghost-momus"]
+    }
+  },
+  "resources": ["file://.kiro/steering/omkx/**/*.md", "skill://.kiro/skills/**/SKILL.md"],
+  "hooks": {
+    "agentSpawn": [
+      { "command": "echo 'You are Prometheus the PLANNER. You create PLANS, never implement. Delegate all exploration to ghost-explorer.'" },
+      { "command": "sh .kiro/hooks/agent-spawn.sh", "timeout_ms": 10000 }
+    ],
+    "preToolUse": [
+      { "matcher": "fs_read", "command": "bash .kiro/hooks/prometheus-read-guard.sh" },
+      { "matcher": "fs_write", "command": "bash .kiro/hooks/prometheus-write-guard.sh" },
+      { "matcher": "shell", "command": "sh .kiro/hooks/pre-tool-use.sh", "timeout_ms": 5000 },
+      { "matcher": "write", "command": "sh .kiro/hooks/pre-tool-use.sh", "timeout_ms": 5000 }
+    ]
+  },
+  "keyboardShortcut": "ctrl+p",
+  "welcomeMessage": "Prometheus ready. What would you like to plan?"
+}

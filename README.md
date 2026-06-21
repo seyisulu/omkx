@@ -1,6 +1,6 @@
 # omkx — Multi-Agent Orchestration for Kiro
 
-> omkx brings battle-tested multi-agent workflows to the Kiro IDE, adapted from [oh-my-openagent](https://github.com/seyisulu/oh-my-openagent).
+> omkx brings battle-tested multi-agent workflows to the Kiro IDE, adapted from [oh-my-openagent](https://github.com/code-yeongyu/oh-my-openagent).
 
 **10 specialized agents. Plan-first development. Verified execution.**
 
@@ -302,8 +302,8 @@ omkx help               # Show help
 
 omkx is based on:
 
-- **[oh-my-openagent](https://github.com/seyisulu/oh-my-openagent)** — The original TypeScript multi-agent system developed by seyisulu. Agent personalities, workflows, and delegation patterns are adapted from this project.
-- **[oh-my-kiro](https://github.com/seyisulu/oh-my-kiro)** — The Kiro IDE agent format and conventions that omkx follows.
+- **[oh-my-openagent](https://github.com/code-yeongyu/oh-my-openagent)** — The original TypeScript multi-agent system developed by seyisulu. Agent personalities, workflows, and delegation patterns are adapted from this project.
+- **[oh-my-kiro](https://github.com/NachoFLizaur/oh-my-kiro)** — The Kiro IDE agent format and conventions that omkx follows.
 
 ### Agent Name Origins
 

@@ -2,40 +2,35 @@
 
 ## System Architecture
 
-omkx is a three-tier multi-agent orchestration system:
+omkx uses a **single entry point** model. The user talks to Sisyphus, who triages and delegates to the right agent — planner, executor, or specialist — as needed. No agent switching required.
 
 ```
 ┌─────────────────────────────────────────────────────────┐
 │                      USER INTERFACE                      │
-│         (Kiro IDE — agent selection via shortcuts)       │
-└──────────┬──────────────┬──────────────┬────────────────┘
-           │ ctrl+p       │ ctrl+a       │ ctrl+e
-           ▼              ▼              ▼
-    ┌──────────┐   ┌──────────┐   ┌──────────┐
-    │PROMETHEUS│   │  ATLAS   │   │SISYPHUS  │
-    │ Planner  │   │Executor  │   │ Direct   │
-    └────┬─────┘   └────┬─────┘   └────┬─────┘
-         │              │              │
-         ▼              ▼              ▼
-    ┌─────────────────────────────────────────────────────┐
-    │               SUBAGENT ORCHESTRATION                 │
-    │                                                     │
-    │  ┌──────────┐ ┌──────────┐ ┌──────────┐            │
-    │  │  METIS   │ │ MOMUS    │ │ ORACLE   │            │
-    │  │Pre-plan  │ │Validator │ │Advisor   │            │
-    │  └──────────┘ └──────────┘ └──────────┘            │
-    │                                                     │
-    │  ┌──────────┐ ┌──────────┐ ┌──────────┐            │
-    │  │EXPLORER  │ │LIBRARIAN │ │ JUNIOR   │            │
-    │  │Codebase  │ │Research  │ │Implement │            │
-    │  └──────────┘ └──────────┘ └──────────┘            │
-    │                                                     │
-    │  ┌──────────┐                                       │
-    │  │ LOOKER   │                                       │
-    │  │ Media    │                                       │
-    │  └──────────┘                                       │
-    └─────────────────────────────────────────────────────┘
+│              (Kiro IDE — ctrl+e for Sisyphus)            │
+└──────────────────────┬──────────────────────────────────┘
+                       │
+                       ▼
+                ┌──────────────┐
+                │  SISYPHUS    │
+                │ Single Entry │
+                │   Point      │
+                └──────┬───────┘
+                       │ triage
+       ┌───────────────┼───────────────┐
+       │               │               │
+       ▼               ▼               ▼
+┌──────────┐    ┌──────────┐    ┌──────────────────────────┐
+│PROMETHEUS│    │  ATLAS   │    │  SPECIALIST SUBAGENTS    │
+│ Planner  │    │Executor  │    │                          │
+│(on demand)│   │(on demand)│   │ ghost-explorer  ghost-jr │
+└────┬─────┘    └────┬─────┘    │ ghost-librarian ghost-   │
+     │               │          │   oracle  ghost-metis    │
+     ▼               ▼          │ ghost-momus  ghost-looker│
+  .kiro/plans/   Task loop     └──────────────────────────┘
 ```
+
+**Sisyphus can also be invoked directly** (ctrl+e) for ad-hoc tasks. Prometheus (ctrl+p) and Atlas (ctrl+a) remain available as direct shortcuts for users who prefer manual control.
 
 ## Agent Roles & Delegation Flows
 
@@ -85,7 +80,7 @@ Final Verification ──► All acceptance criteria met?
 Report ──► User
 ```
 
-### Sisyphus (Direct Task Flow)
+### Sisyphus (Single Entry Point)
 ```
 User Request
   │
@@ -94,14 +89,19 @@ Triage
   │
   ├── Trivial ──► Do it yourself
   │
-  ├── Complex ──► ghost-junior (implement)
+  ├── Needs a plan? ──► Delegate to PROMETHEUS (planning)
+  │                      └── User reviews plan
+  │                          └── Delegate to ATLAS (execution)
   │
-  ├── Research ──► ghost-librarian (research)
+  ├── Has a plan? ──► Delegate to ATLAS (plan execution)
   │
-  └── Explore ──► ghost-explorer (explore)
+  ├── Direct implementation? ──► ghost-junior (implement)
   │
-  ▼
-Oracle Escalation (if stuck) ──► ghost-oracle
+  ├── Research? ──► ghost-librarian (research)
+  │
+  ├── Explore? ──► ghost-explorer (explore)
+  │
+  └── Stuck? ──► ghost-oracle (debugging advice)
   │
   ▼
 Report ──► User

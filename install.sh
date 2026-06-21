@@ -1,20 +1,27 @@
 #!/bin/bash
 # omkx — Install Script
 # Installs omkx multi-agent orchestration into the current Kiro project
-# Usage: bash install.sh [--force] [--dir <path>]
+# Usage: bash install.sh [--force] [--global] [--dir <path>]
 
 set -e
 
 FORCE=false
+GLOBAL=false
 TARGET_DIR="$(pwd)"
 
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --force) FORCE=true; shift ;;
+    --global) GLOBAL=true; shift ;;
     --dir) TARGET_DIR="$2"; shift 2 ;;
     *) echo "Unknown option: $1"; exit 1 ;;
   esac
 done
+
+# --global installs to ~/.kiro so agents are available in all projects
+if [ "$GLOBAL" = true ]; then
+  TARGET_DIR="$HOME"
+fi
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 KIRO_DIR="$TARGET_DIR/.kiro"

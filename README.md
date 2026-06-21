@@ -35,33 +35,56 @@ omkx provides a three-tier agent system where main agents orchestrate work and s
 ## Quick Start
 
 ```bash
-npx omkx@latest install
+npx omkx@latest
 ```
 
-This installs all agents, prompts, hooks, skills, and configuration into your Kiro project's `.kiro/` directory.
+Or for global install (available in all projects):
+
+```bash
+npx omkx@latest --global
+```
+
+This copies all agents, prompts, hooks, skills, steering files, and MCP configuration into `.kiro/` — either `./.kiro/` (local) or `~/.kiro/` (global). Then open your project in Kiro and the agents are available — `ctrl+p` for Prometheus (planner), `ctrl+a` for Atlas (plan executor), `ctrl+e` for Sisyphus (direct tasks).
 
 ---
 
 ## Installation
 
-### Option 1: npx (Recommended)
+Two ways:
+
+**Option 1 — npx (no clone needed):**
 
 ```bash
-npx omkx@latest install
+npx omkx@latest
 ```
 
-### Option 2: Using the install script
+Or for global install (available in all projects):
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/seyisulu/omkx/main/install.sh | bash
+npx omkx@latest --global
 ```
 
-### Option 3: Local development
+**Option 2 — from the repo:**
 
 ```bash
 git clone https://github.com/seyisulu/omkx.git
 cd omkx
-bash install.sh
+./install.sh            # local install (current project only)
+./install.sh --global   # global install (all projects)
+```
+
+Both methods copy the `.kiro/` directory (agents, prompts, hooks, skills, steering files, MCP config) into either `./.kiro/` (local) or `~/.kiro/` (global). Then just open your project in Kiro and the agents are available — `ctrl+p` for Prometheus (planner), `ctrl+a` for Atlas (plan executor), `ctrl+e` for Sisyphus (direct tasks).
+
+### Updating later
+
+```bash
+npx omkx@latest --update
+```
+
+### Uninstalling
+
+```bash
+npx omkx@latest --uninstall
 ```
 
 ---
@@ -287,13 +310,16 @@ Update files in `.kiro/steering/omkx/` to change project conventions, plan forma
 ## Commands
 
 ```bash
-omkx install            # Install omkx agents and configuration
-omkx install --force    # Force reinstall
+omkx                      # Install (local, current project only)
+omkx --global             # Install globally (all projects)
+omkx --update             # Update to the latest version
+omkx --uninstall          # Remove omkx
+omkx install --force      # Force reinstall
 omkx install --dir <path> # Install to specific directory
-omkx status             # Show installation status
-omkx list               # List all installed agents
-omkx plans              # List execution plans
-omkx help               # Show help
+omkx status               # Show installation status
+omkx list                 # List all installed agents
+omkx plans                # List execution plans
+omkx help                 # Show help
 ```
 
 ---
@@ -302,7 +328,7 @@ omkx help               # Show help
 
 omkx is based on:
 
-- **[oh-my-openagent](https://github.com/code-yeongyu/oh-my-openagent)** — The original TypeScript multi-agent system developed by seyisulu. Agent personalities, workflows, and delegation patterns are adapted from this project.
+- **[oh-my-openagent](https://github.com/code-yeongyu/oh-my-openagent)** — The original TypeScript multi-agent system developed by code-yeongyu. Agent personalities, workflows, and delegation patterns are adapted from this project.
 - **[oh-my-kiro](https://github.com/NachoFLizaur/oh-my-kiro)** — The Kiro IDE agent format and conventions that omkx follows.
 
 ### Agent Name Origins

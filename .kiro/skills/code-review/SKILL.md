@@ -1,6 +1,6 @@
 # Code Review Skill
 
-Self-review checklist for ghost-junior and code quality assessment.
+Self-review checklist for omkx-junior and code quality assessment.
 
 ## Review Checklist
 

@@ -7,8 +7,8 @@
   "toolsSettings": {
     "shell": { "autoAllowReadonly": true },
     "subagent": {
-      "trustedAgents": ["ghost-explorer", "ghost-junior", "ghost-oracle", "prometheus", "atlas"],
-      "availableAgents": ["ghost-explorer", "ghost-junior", "ghost-oracle", "prometheus", "atlas"]
+      "trustedAgents": ["omkx-explorer", "omkx-junior", "omkx-oracle", "prometheus", "atlas"],
+      "availableAgents": ["omkx-explorer", "omkx-junior", "omkx-oracle", "prometheus", "atlas"]
     }
   },
   "resources": ["file://.kiro/steering/omkx/**/*.md", "skill://.kiro/skills/**/SKILL.md"],

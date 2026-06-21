@@ -23,10 +23,10 @@ omkx uses a **single entry point** model. The user talks to Sisyphus, who triage
 ┌──────────┐    ┌──────────┐    ┌──────────────────────────┐
 │PROMETHEUS│    │  ATLAS   │    │  SPECIALIST SUBAGENTS    │
 │ Planner  │    │Executor  │    │                          │
-│(on demand)│   │(on demand)│   │ ghost-explorer  ghost-jr │
-└────┬─────┘    └────┬─────┘    │ ghost-librarian ghost-   │
-     │               │          │   oracle  ghost-metis    │
-     ▼               ▼          │ ghost-momus  ghost-looker│
+│(on demand)│   │(on demand)│   │ omkx-explorer  omkx-jr │
+└────┬─────┘    └────┬─────┘    │ omkx-librarian omkx-   │
+     │               │          │   oracle  omkx-metis    │
+     ▼               ▼          │ omkx-momus  omkx-looker│
   .kiro/plans/   Task loop     └──────────────────────────┘
 ```
 
@@ -39,11 +39,11 @@ omkx uses a **single entry point** model. The user talks to Sisyphus, who triage
 User Request
   │
   ▼
-Pre-Analysis ──► ghost-metis (analyze intentions, risks, ambiguities)
+Pre-Analysis ──► omkx-metis (analyze intentions, risks, ambiguities)
   │
   ▼
-Research ──► ghost-explorer (explore codebase)
-  │      ──► ghost-librarian (research docs/web)
+Research ──► omkx-explorer (explore codebase)
+  │      ──► omkx-librarian (research docs/web)
   │
   ▼
 Interview ──► User (clarify ambiguities)
@@ -52,7 +52,7 @@ Interview ──► User (clarify ambiguities)
 Plan Generation ──► .kiro/plans/{name}.md
   │
   ▼
-Validation ──► ghost-momus (review for blockers)
+Validation ──► omkx-momus (review for blockers)
   │
   ▼
 Final Plan ──► User (handoff to Atlas)
@@ -66,12 +66,12 @@ Plan File (.kiro/plans/{name}.md)
 Parse Tasks ──► Identify dependencies, agent assignments
   │
   ▼
-Parallel Delegation ──► Task 1 ──► ghost-junior ──► Verify
-  │                  ──► Task 2 ──► ghost-junior ──► Verify
-  │                  ──► Task 3 ──► ghost-explorer ──► Verify
+Parallel Delegation ──► Task 1 ──► omkx-junior ──► Verify
+  │                  ──► Task 2 ──► omkx-junior ──► Verify
+  │                  ──► Task 3 ──► omkx-explorer ──► Verify
   │
   ▼
-Oracle Escalation (on failure) ──► ghost-oracle ──► Re-delegate
+Oracle Escalation (on failure) ──► omkx-oracle ──► Re-delegate
   │
   ▼
 Final Verification ──► All acceptance criteria met?
@@ -95,13 +95,13 @@ Triage
   │
   ├── Has a plan? ──► Delegate to ATLAS (plan execution)
   │
-  ├── Direct implementation? ──► ghost-junior (implement)
+  ├── Direct implementation? ──► omkx-junior (implement)
   │
-  ├── Research? ──► ghost-librarian (research)
+  ├── Research? ──► omkx-librarian (research)
   │
-  ├── Explore? ──► ghost-explorer (explore)
+  ├── Explore? ──► omkx-explorer (explore)
   │
-  └── Stuck? ──► ghost-oracle (debugging advice)
+  └── Stuck? ──► omkx-oracle (debugging advice)
   │
   ▼
 Report ──► User
@@ -113,20 +113,20 @@ Notepads provide context persistence across agent invocations:
 
 ```
 .kiro/notepads/{plan-name}/
-├── pre-analysis.md      # ghost-metis: hidden intentions, risks
-├── exploration.md       # ghost-explorer: codebase findings
-├── research.md          # ghost-librarian: web/doc findings
-├── plan-review.md       # ghost-momus: validation results
-├── oracle-advice.md     # ghost-oracle: recommendations
+├── pre-analysis.md      # omkx-metis: hidden intentions, risks
+├── exploration.md       # omkx-explorer: codebase findings
+├── research.md          # omkx-librarian: web/doc findings
+├── plan-review.md       # omkx-momus: validation results
+├── oracle-advice.md     # omkx-oracle: recommendations
 ├── verification.md      # Atlas: per-task verification
-└── implementation.md    # ghost-junior: implementation notes
+└── implementation.md    # omkx-junior: implementation notes
 ```
 
 ### Notepad Protocol
 1. Prometheus creates the notepad directory when generating a plan
 2. Each agent writes findings to their designated file
 3. Atlas reads all notepads for context before executing tasks
-4. ghost-junior reads notepads for implementation context
+4. omkx-junior reads notepads for implementation context
 5. Notepads are persistent — they survive agent session restarts
 
 ## Write Restrictions
@@ -138,13 +138,13 @@ The write restriction system prevents agents from modifying files outside their 
 | Prometheus | `.kiro/plans/**`, `.kiro/notepads/**` |
 | Atlas | `.kiro/plans/**`, `.kiro/notepads/**` |
 | Sisyphus | Unrestricted |
-| ghost-explorer | `.kiro/notepads/**` |
-| ghost-metis | `.kiro/notepads/**` |
-| ghost-momus | `.kiro/notepads/**` |
-| ghost-oracle | `.kiro/notepads/**` |
-| ghost-librarian | `.kiro/notepads/**` |
-| ghost-junior | Unrestricted |
-| ghost-looker | No write access |
+| omkx-explorer | `.kiro/notepads/**` |
+| omkx-metis | `.kiro/notepads/**` |
+| omkx-momus | `.kiro/notepads/**` |
+| omkx-oracle | `.kiro/notepads/**` |
+| omkx-librarian | `.kiro/notepads/**` |
+| omkx-junior | Unrestricted |
+| omkx-looker | No write access |
 
 ## Oracle Consultation Pattern
 

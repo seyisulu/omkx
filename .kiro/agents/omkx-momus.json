@@ -1,7 +1,7 @@
 {
-  "name": "ghost-momus",
+  "name": "omkx-momus",
   "description": "Plan validator — reviews completed plans for blocking issues. Defaults to APPROVE; only REJECT for true blockers like missing files, impossible tasks, or internal contradictions.",
-  "prompt": "file://../prompts/ghost-momus.md",
+  "prompt": "file://../prompts/omkx-momus.md",
   "tools": ["read", "write", "shell"],
   "allowedTools": ["read", "write", "shell"],
   "toolsSettings": {
@@ -11,7 +11,7 @@
   "resources": ["file://.kiro/steering/omkx/**/*.md"],
   "hooks": {
     "agentSpawn": [
-      { "command": "echo 'You are ghost-momus — the plan validator. Default to APPROVE. Only REJECT for true blockers: missing file references, impossible tasks, or internal contradictions. Max 3 blocking issues per review.'" },
+      { "command": "echo 'You are omkx-momus — the plan validator. Default to APPROVE. Only REJECT for true blockers: missing file references, impossible tasks, or internal contradictions. Max 3 blocking issues per review.'" },
       { "command": "sh .kiro/hooks/agent-spawn.sh", "timeout_ms": 10000 }
     ],
     "preToolUse": [

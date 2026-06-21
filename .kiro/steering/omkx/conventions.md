@@ -13,17 +13,17 @@ All omkx steering files live under `.kiro/steering/omkx/`. The directory name `o
 - Location: `.kiro/notepads/{plan-name}/`
 - Each plan gets its own notepad directory
 - Notepad files persist intermediate agent findings:
-  - `pre-analysis.md` — ghost-metis analysis
-  - `exploration.md` — ghost-explorer findings
-  - `research.md` — ghost-librarian research
-  - `plan-review.md` — ghost-momus review
-  - `oracle-advice.md` — ghost-oracle consultations
+  - `pre-analysis.md` — omkx-metis analysis
+  - `exploration.md` — omkx-explorer findings
+  - `research.md` — omkx-librarian research
+  - `plan-review.md` — omkx-momus review
+  - `oracle-advice.md` — omkx-oracle consultations
   - `verification.md` — Atlas verification notes
-  - `implementation.md` — ghost-junior implementation notes
+  - `implementation.md` — omkx-junior implementation notes
 
 ## Agent Names
 - Main agents: `prometheus`, `atlas`, `sisyphus` (lowercase, no prefix)
-- Subagents: `ghost-` prefix (e.g., `ghost-junior`, `ghost-oracle`)
+- Subagents: `omkx-` prefix (e.g., `omkx-junior`, `omkx-oracle`)
 - Agent config files: `{name}.json` in `.kiro/agents/`
 - Agent prompt files: `{name}.md` in `.kiro/prompts/`
 
@@ -45,13 +45,13 @@ All delegations from main agents to subagents use the 6-section format:
 - Prometheus: `.kiro/plans/**` and `.kiro/notepads/**` only
 - Atlas: `.kiro/plans/**` and `.kiro/notepads/**` only
 - Sisyphus: unrestricted (full user trust)
-- ghost-explorer: `.kiro/notepads/**` only
-- ghost-metis: `.kiro/notepads/**` only
-- ghost-momus: `.kiro/notepads/**` only
-- ghost-oracle: `.kiro/notepads/**` only
-- ghost-librarian: `.kiro/notepads/**` only
-- ghost-junior: unrestricted (full filesystem)
-- ghost-looker: no write access
+- omkx-explorer: `.kiro/notepads/**` only
+- omkx-metis: `.kiro/notepads/**` only
+- omkx-momus: `.kiro/notepads/**` only
+- omkx-oracle: `.kiro/notepads/**` only
+- omkx-librarian: `.kiro/notepads/**` only
+- omkx-junior: unrestricted (full filesystem)
+- omkx-looker: no write access
 
 ## Keyboard Shortcuts
 - `ctrl+p` — Prometheus (Planner)
@@ -60,5 +60,5 @@ All delegations from main agents to subagents use the 6-section format:
 
 ## Shell Access
 - All subagents: auto-allow readonly shell commands
-- ghost-junior: full shell access (not auto-allowed)
-- ghost-looker: no shell access
+- omkx-junior: full shell access (not auto-allowed)
+- omkx-looker: no shell access

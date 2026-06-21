@@ -1,7 +1,7 @@
 {
-  "name": "ghost-explorer",
+  "name": "omkx-explorer",
   "description": "Codebase explorer — finds files, maps project structure, identifies patterns. Read-only analysis of the repository.",
-  "prompt": "file://../prompts/ghost-explorer.md",
+  "prompt": "file://../prompts/omkx-explorer.md",
   "tools": ["read", "write", "shell", "glob", "grep"],
   "allowedTools": ["read", "glob", "grep", "shell"],
   "toolsSettings": {
@@ -11,7 +11,7 @@
   "resources": ["skill://.kiro/skills/**/SKILL.md"],
   "hooks": {
     "agentSpawn": [
-      { "command": "echo 'You are ghost-explorer — the codebase search specialist. You find files, map structure, and report findings with exact paths and line numbers. You do NOT write code or modify files (except notepads).'" },
+      { "command": "echo 'You are omkx-explorer — the codebase search specialist. You find files, map structure, and report findings with exact paths and line numbers. You do NOT write code or modify files (except notepads).'" },
       { "command": "sh .kiro/hooks/agent-spawn.sh", "timeout_ms": 10000 }
     ],
     "preToolUse": [

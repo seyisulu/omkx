@@ -1,7 +1,7 @@
 {
   "mcpServers": {
     "web-research": {
-      "description": "Web research tools for ghost-librarian — search and fetch web content",
+      "description": "Web research tools for omkx-librarian — search and fetch web content",
       "tools": ["web_search", "web_fetch"]
     }
   }

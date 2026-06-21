@@ -1,7 +1,7 @@
 {
-  "name": "ghost-junior",
+  "name": "omkx-junior",
   "description": "Implementation specialist (Sisyphus Junior) — writes code, creates files, runs commands, and verifies results. Follows task instructions precisely with up to 3 retries.",
-  "prompt": "file://../prompts/ghost-junior.md",
+  "prompt": "file://../prompts/omkx-junior.md",
   "tools": ["read", "write", "shell", "glob", "grep"],
   "allowedTools": ["read", "write", "shell", "glob", "grep"],
   "toolsSettings": {
@@ -10,7 +10,7 @@
   "resources": ["file://.kiro/steering/omkx/**/*.md", "skill://.kiro/skills/**/SKILL.md"],
   "hooks": {
     "agentSpawn": [
-      { "command": "echo 'You are ghost-junior — the implementation specialist. You write code, create files, run commands, and verify results. Follow task instructions precisely. Retry up to 3 times on failure. Always verify that your work produces the expected outcome.'" },
+      { "command": "echo 'You are omkx-junior — the implementation specialist. You write code, create files, run commands, and verify results. Follow task instructions precisely. Retry up to 3 times on failure. Always verify that your work produces the expected outcome.'" },
       { "command": "sh .kiro/hooks/agent-spawn.sh", "timeout_ms": 10000 }
     ],
     "preToolUse": [

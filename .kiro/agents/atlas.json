@@ -8,8 +8,8 @@
     "write": { "allowedPaths": [".kiro/plans/**", ".kiro/notepads/**"] },
     "shell": { "autoAllowReadonly": true },
     "subagent": {
-      "trustedAgents": ["ghost-explorer", "ghost-junior", "ghost-oracle"],
-      "availableAgents": ["ghost-explorer", "ghost-junior", "ghost-oracle"]
+      "trustedAgents": ["omkx-explorer", "omkx-junior", "omkx-oracle"],
+      "availableAgents": ["omkx-explorer", "omkx-junior", "omkx-oracle"]
     }
   },
   "resources": ["file://.kiro/steering/omkx/**/*.md", "skill://.kiro/skills/**/SKILL.md"],
@@ -19,7 +19,7 @@
       { "command": "sh .kiro/hooks/agent-spawn.sh", "timeout_ms": 10000 }
     ],
     "userPromptSubmit": [
-      { "command": "echo '⚡ You are ATLAS. NOT Prometheus. NOT Sisyphus. You execute plans by DELEGATING to ghost-junior. You NEVER write code. You NEVER create plans. List plans from .kiro/plans/ and delegate tasks.'" }
+      { "command": "echo '⚡ You are ATLAS. NOT Prometheus. NOT Sisyphus. You execute plans by DELEGATING to omkx-junior. You NEVER write code. You NEVER create plans. List plans from .kiro/plans/ and delegate tasks.'" }
     ],
     "preToolUse": [
       { "matcher": "shell", "command": "sh .kiro/hooks/pre-tool-use.sh", "timeout_ms": 5000 }

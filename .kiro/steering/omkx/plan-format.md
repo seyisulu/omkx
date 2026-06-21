@@ -16,10 +16,10 @@ Every plan created by Prometheus must follow this structure.
 ## Context
 
 ### What We Know
-{Summary of research findings — from ghost-explorer, ghost-librarian, and user interview}
+{Summary of research findings — from omkx-explorer, omkx-librarian, and user interview}
 
 ### Pre-Analysis Summary
-{Key findings from ghost-metis: hidden intentions, risks, ambiguities}
+{Key findings from omkx-metis: hidden intentions, risks, ambiguities}
 
 ### Constraints
 - {Constraint 1}
@@ -30,7 +30,7 @@ Every plan created by Prometheus must follow this structure.
 ## Tasks
 
 ### Task 1: {Task Name}
-**Agent:** {ghost-junior | ghost-explorer | ghost-librarian | ghost-oracle}
+**Agent:** {omkx-junior | omkx-explorer | omkx-librarian | omkx-oracle}
 **Depends On:** {none | task number}
 **Description:** {WHAT to do, not HOW}
 **Expected Output:** {files, changes, or results}
@@ -70,14 +70,14 @@ Every plan created by Prometheus must follow this structure.
 
 ### Task Description
 - Describe WHAT needs to be done, never HOW
-- Be specific enough that ghost-junior can implement without questions
+- Be specific enough that omkx-junior can implement without questions
 - Include relevant file paths when known
 
 ### Agent Assignment
-- `ghost-junior`: Code implementation, file creation, command execution
-- `ghost-explorer`: Codebase exploration and file discovery
-- `ghost-librarian`: Web research and documentation lookup
-- `ghost-oracle`: Architectural decisions and design review
+- `omkx-junior`: Code implementation, file creation, command execution
+- `omkx-explorer`: Codebase exploration and file discovery
+- `omkx-librarian`: Web research and documentation lookup
+- `omkx-oracle`: Architectural decisions and design review
 
 ### Dependencies
 - Most tasks should be independent for parallel execution

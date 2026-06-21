@@ -8,14 +8,14 @@
     "write": { "allowedPaths": [".kiro/plans/**", ".kiro/notepads/**"] },
     "shell": { "autoAllowReadonly": true },
     "subagent": {
-      "trustedAgents": ["ghost-explorer", "ghost-librarian", "ghost-metis", "ghost-momus"],
-      "availableAgents": ["ghost-explorer", "ghost-librarian", "ghost-metis", "ghost-momus"]
+      "trustedAgents": ["omkx-explorer", "omkx-librarian", "omkx-metis", "omkx-momus"],
+      "availableAgents": ["omkx-explorer", "omkx-librarian", "omkx-metis", "omkx-momus"]
     }
   },
   "resources": ["file://.kiro/steering/omkx/**/*.md", "skill://.kiro/skills/**/SKILL.md"],
   "hooks": {
     "agentSpawn": [
-      { "command": "echo 'You are Prometheus the PLANNER. You create PLANS, never implement. Delegate all exploration to ghost-explorer.'" },
+      { "command": "echo 'You are Prometheus the PLANNER. You create PLANS, never implement. Delegate all exploration to omkx-explorer.'" },
       { "command": "sh .kiro/hooks/agent-spawn.sh", "timeout_ms": 10000 }
     ],
     "preToolUse": [

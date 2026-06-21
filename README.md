@@ -22,13 +22,13 @@ omkx provides a three-tier agent system where main agents orchestrate work and s
 
 | Agent | Role |
 |-------|------|
-| **ghost-oracle** | Strategic technical advisor — architecture, debugging, self-review (read-only) |
-| **ghost-metis** | Pre-planning analyst — finds hidden intentions, risks, ambiguities |
-| **ghost-momus** | Plan validator — reviews plans for blocking issues |
-| **ghost-librarian** | Research specialist — web search, documentation, library evaluation |
-| **ghost-explorer** | Codebase explorer — finds files, maps structure, identifies patterns |
-| **ghost-junior** | Implementation specialist — writes code, creates files, verifies results |
-| **ghost-looker** | Media analyst — analyzes images, PDFs, diagrams |
+| **omkx-oracle** | Strategic technical advisor — architecture, debugging, self-review (read-only) |
+| **omkx-metis** | Pre-planning analyst — finds hidden intentions, risks, ambiguities |
+| **omkx-momus** | Plan validator — reviews plans for blocking issues |
+| **omkx-librarian** | Research specialist — web search, documentation, library evaluation |
+| **omkx-explorer** | Codebase explorer — finds files, maps structure, identifies patterns |
+| **omkx-junior** | Implementation specialist — writes code, creates files, verifies results |
+| **omkx-looker** | Media analyst — analyzes images, PDFs, diagrams |
 
 ---
 
@@ -98,9 +98,9 @@ When you have a complex task, start with Prometheus:
 1. Press `ctrl+p` to activate Prometheus
 2. Describe what you want to accomplish
 3. Prometheus will:
-   - Analyze your request (via ghost-metis)
-   - Research the codebase (via ghost-explorer)
-   - Research external resources (via ghost-librarian)
+   - Analyze your request (via omkx-metis)
+   - Research the codebase (via omkx-explorer)
+   - Research external resources (via omkx-librarian)
    - Interview you for clarifications
    - Generate a structured plan in `.kiro/plans/`
 4. Review the plan, then switch to Atlas (`ctrl+a`)
@@ -114,7 +114,7 @@ When you have a plan ready:
 3. Select the plan to execute
 4. Atlas delegates each task to the appropriate subagent
 5. Every task output is verified
-6. Failed tasks are retried or escalated to ghost-oracle
+6. Failed tasks are retried or escalated to omkx-oracle
 7. Atlas reports completion with verification results
 
 ### Sisyphus — Direct Tasks (`ctrl+e`)
@@ -145,13 +145,13 @@ Plans are markdown files in `.kiro/plans/`:
 ## Tasks
 
 ### Task 1: Set up auth database schema
-**Agent:** ghost-junior
+**Agent:** omkx-junior
 **Depends On:** none
 **Description:** Create users table with email, password_hash, and session fields
 **Verification:** Table exists with correct schema
 
 ### Task 2: Implement auth middleware
-**Agent:** ghost-junior
+**Agent:** omkx-junior
 **Depends On:** Task 1
 **Description:** Create login, register, and session validation middleware
 **Verification:** Middleware protects routes and validates sessions
@@ -259,7 +259,7 @@ Update files in `.kiro/steering/omkx/` to change project conventions, plan forma
 │   ├── prometheus.json
 │   ├── atlas.json
 │   ├── sisyphus.json
-│   └── ghost-*.json      # 7 subagent configs
+│   └── omkx-*.json      # 7 subagent configs
 ├── prompts/              # Agent behavior prompts (10 markdown files)
 ├── hooks/                # Lifecycle hook scripts (4 shell scripts)
 ├── skills/               # Shared skill definitions (5 skills)

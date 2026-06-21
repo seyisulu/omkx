@@ -18,13 +18,13 @@ omkx provides 10 specialized agents organized into three tiers:
 ### Subagents (Internal Specialists)
 | Agent | Role |
 |-------|------|
-| **ghost-oracle** | Strategic technical advisor — architecture, debugging, self-review |
-| **ghost-metis** | Pre-planning analyst — finds hidden intentions, risks, ambiguities |
-| **ghost-momus** | Plan validator — reviews plans for blocking issues |
-| **ghost-librarian** | Research specialist — web search, documentation, library evaluation |
-| **ghost-explorer** | Codebase explorer — finds files, maps structure, identifies patterns |
-| **ghost-junior** | Implementation specialist — writes code, creates files, verifies results |
-| **ghost-looker** | Media analyst — analyzes images, PDFs, diagrams |
+| **omkx-oracle** | Strategic technical advisor — architecture, debugging, self-review |
+| **omkx-metis** | Pre-planning analyst — finds hidden intentions, risks, ambiguities |
+| **omkx-momus** | Plan validator — reviews plans for blocking issues |
+| **omkx-librarian** | Research specialist — web search, documentation, library evaluation |
+| **omkx-explorer** | Codebase explorer — finds files, maps structure, identifies patterns |
+| **omkx-junior** | Implementation specialist — writes code, creates files, verifies results |
+| **omkx-looker** | Media analyst — analyzes images, PDFs, diagrams |
 
 ## Core Philosophy
 

@@ -119,6 +119,7 @@ const MANIFEST = {
     "frontend-ux",
     "debugging",
     "programming",
+    "ultrawork",
   ],
   settings: ["mcp.json"],
 };

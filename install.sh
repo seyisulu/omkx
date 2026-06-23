@@ -77,13 +77,13 @@ echo "   ✅ 4 hooks installed (executable)"
 
 # Copy skills
 echo "🎯 Copying skills..."
-for skill in git-operations code-review frontend-ux debugging programming; do
+for skill in git-operations code-review frontend-ux debugging programming ultrawork; do
   if [ -d "$SCRIPT_DIR/.kiro/skills/$skill" ]; then
     mkdir -p "$KIRO_DIR/skills/$skill"
     cp "$SCRIPT_DIR/.kiro/skills/$skill/SKILL.md" "$KIRO_DIR/skills/$skill/SKILL.md"
   fi
 done
-echo "   ✅ 5 skills installed"
+echo "   ✅ 6 skills installed"
 
 # Copy steering files
 echo "🧭 Copying steering files..."
@@ -108,7 +108,7 @@ echo "📂 Installed structure:"
 echo "   .kiro/agents/       → 10 agents"
 echo "   .kiro/prompts/      → 10 prompt files"
 echo "   .kiro/hooks/        → 4 lifecycle hooks"
-echo "   .kiro/skills/       → 5 shared skills"
+echo "   .kiro/skills/       → 6 shared skills"
 echo "   .kiro/steering/omkx/ → 4 steering documents"
 echo "   .kiro/settings/     → MCP configuration"
 echo "   .kiro/plans/        → Execution plans directory"

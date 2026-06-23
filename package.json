@@ -1,6 +1,6 @@
 {
   "name": "omkx",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Multi-agent orchestration for Kiro — agents from oh-my-openagent adapted for the Kiro IDE",
   "bin": {
     "omkx": "bin/cli.mjs"

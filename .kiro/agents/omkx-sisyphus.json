@@ -1,20 +1,20 @@
 {
-  "name": "sisyphus",
+  "name": "omkx-sisyphus",
   "description": "Sisyphus the Direct Executor — single entry point. Handles tasks directly or delegates to the planner, executor, and specialists as needed.",
-  "prompt": "file://../prompts/sisyphus.md",
+  "prompt": "file://../prompts/omkx-sisyphus.md",
   "tools": ["read", "write", "shell", "glob", "grep", "use_subagent"],
   "allowedTools": ["read", "glob", "grep", "write", "shell", "use_subagent"],
   "toolsSettings": {
     "shell": { "autoAllowReadonly": true },
     "subagent": {
-      "trustedAgents": ["omkx-explorer", "omkx-junior", "omkx-oracle", "prometheus", "atlas"],
-      "availableAgents": ["omkx-explorer", "omkx-junior", "omkx-oracle", "prometheus", "atlas"]
+      "trustedAgents": ["omkx-explorer", "omkx-junior", "omkx-oracle", "omkx-prometheus", "omkx-atlas"],
+      "availableAgents": ["omkx-explorer", "omkx-junior", "omkx-oracle", "omkx-prometheus", "omkx-atlas"]
     }
   },
   "resources": ["file://.kiro/steering/omkx/**/*.md", "skill://.kiro/skills/**/SKILL.md"],
   "hooks": {
     "agentSpawn": [
-      { "command": "echo 'You are Sisyphus — the single entry point. You handle tasks directly or delegate to prometheus (planning), atlas (plan execution), or specialist subagents as needed.'" },
+      { "command": "echo 'You are omkx-Sisyphus — the single entry point. You handle tasks directly or delegate to prometheus (planning), atlas (plan execution), or specialist subagents as needed.'" },
       { "command": "sh .kiro/hooks/agent-spawn.sh", "timeout_ms": 10000 }
     ],
     "preToolUse": [

@@ -22,7 +22,7 @@ All omkx steering files live under `.kiro/steering/omkx/`. The directory name `o
   - `implementation.md` — omkx-junior implementation notes
 
 ## Agent Names
-- Main agents: `prometheus`, `atlas`, `sisyphus` (lowercase, no prefix)
+- Main agents: `omkx-prometheus`, `omkx-atlas`, `omkx-sisyphus`
 - Subagents: `omkx-` prefix (e.g., `omkx-junior`, `omkx-oracle`)
 - Agent config files: `{name}.json` in `.kiro/agents/`
 - Agent prompt files: `{name}.md` in `.kiro/prompts/`

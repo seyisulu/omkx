@@ -221,8 +221,8 @@ All main agents delegate using this 6-section format:
 Shell scripts that enforce agent behavior:
 - `agent-spawn.sh` — Injects git status and plan context on agent activation
 - `pre-tool-use.sh` — Prevents destruction of `.kiro/` files
-- `prometheus-read-guard.sh` — Ensures Prometheus delegates exploration
-- `prometheus-write-guard.sh` — Restricts Prometheus to plan/notepad writes only
+- `omkx-prometheus-read-guard.sh` — Ensures Prometheus delegates exploration
+- `omkx-prometheus-write-guard.sh` — Restricts Prometheus to plan/notepad writes only
 
 ---
 
@@ -256,9 +256,9 @@ Update files in `.kiro/steering/omkx/` to change project conventions, plan forma
 ```
 .kiro/
 ├── agents/               # Agent JSON configurations (10 files)
-│   ├── prometheus.json
-│   ├── atlas.json
-│   ├── sisyphus.json
+│   ├── omkx-prometheus.json
+│   ├── omkx-atlas.json
+│   ├── omkx-sisyphus.json
 │   └── omkx-*.json      # 7 subagent configs
 ├── prompts/              # Agent behavior prompts (10 markdown files)
 ├── hooks/                # Lifecycle hook scripts (4 shell scripts)

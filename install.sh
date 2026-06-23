@@ -34,7 +34,7 @@ echo "╚═══════════════════════�
 echo ""
 
 # Check if already installed
-if [ -f "$KIRO_DIR/agents/prometheus.json" ] && [ "$FORCE" != true ]; then
+if [ -f "$KIRO_DIR/agents/omkx-prometheus.json" ] && [ "$FORCE" != true ]; then
   echo "✅ omkx is already installed in $TARGET_DIR"
   echo "   Use --force to reinstall."
   exit 0

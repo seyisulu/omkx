@@ -12,7 +12,7 @@ omkx uses a **single entry point** model. The user talks to Sisyphus, who triage
                        │
                        ▼
                 ┌──────────────┐
-                │  SISYPHUS    │
+                │  OMKX-SISYPHUS│
                 │ Single Entry │
                 │   Point      │
                 └──────┬───────┘
@@ -21,7 +21,7 @@ omkx uses a **single entry point** model. The user talks to Sisyphus, who triage
        │               │               │
        ▼               ▼               ▼
 ┌──────────┐    ┌──────────┐    ┌──────────────────────────┐
-│PROMETHEUS│    │  ATLAS   │    │  SPECIALIST SUBAGENTS    │
+│OMKX-PROM │    │OMKX-ATLAS│    │  SPECIALIST SUBAGENTS    │
 │ Planner  │    │Executor  │    │                          │
 │(on demand)│   │(on demand)│   │ omkx-explorer  omkx-jr │
 └────┬─────┘    └────┬─────┘    │ omkx-librarian omkx-   │
@@ -89,11 +89,11 @@ Triage
   │
   ├── Trivial ──► Do it yourself
   │
-  ├── Needs a plan? ──► Delegate to PROMETHEUS (planning)
+  ├── Needs a plan? ──► Delegate to OMKX-PROMETHEUS (planning)
   │                      └── User reviews plan
-  │                          └── Delegate to ATLAS (execution)
+  │                          └── Delegate to OMKX-ATLAS (execution)
   │
-  ├── Has a plan? ──► Delegate to ATLAS (plan execution)
+  ├── Has a plan? ──► Delegate to OMKX-ATLAS (plan execution)
   │
   ├── Direct implementation? ──► omkx-junior (implement)
   │

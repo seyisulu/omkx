@@ -78,9 +78,9 @@ function getVersion() {
 
 const MANIFEST = {
   agents: [
-    "prometheus.json",
-    "atlas.json",
-    "sisyphus.json",
+    "omkx-prometheus.json",
+    "omkx-atlas.json",
+    "omkx-sisyphus.json",
     "omkx-explorer.json",
     "omkx-metis.json",
     "omkx-momus.json",
@@ -90,9 +90,9 @@ const MANIFEST = {
     "omkx-looker.json",
   ],
   prompts: [
-    "prometheus.md",
-    "atlas.md",
-    "sisyphus.md",
+    "omkx-prometheus.md",
+    "omkx-atlas.md",
+    "omkx-sisyphus.md",
     "omkx-explorer.md",
     "omkx-metis.md",
     "omkx-momus.md",
@@ -104,8 +104,8 @@ const MANIFEST = {
   hooks: [
     "agent-spawn.sh",
     "pre-tool-use.sh",
-    "prometheus-read-guard.sh",
-    "prometheus-write-guard.sh",
+    "omkx-prometheus-read-guard.sh",
+    "omkx-prometheus-write-guard.sh",
   ],
   steering: [
     "product.md",
@@ -130,7 +130,7 @@ function install(targetDir, force = false) {
   const scope = isGlobal ? "globally" : "locally";
 
   // Check if already installed
-  const manifestMarker = resolve(kiroDir, "agents", "prometheus.json");
+  const manifestMarker = resolve(kiroDir, "agents", "omkx-prometheus.json");
   if (existsSync(manifestMarker) && !force) {
     console.log(`✅ omkx is already installed ${scope} (${kiroDir}).`);
     console.log("   Use --force or --update to reinstall.");
@@ -183,7 +183,7 @@ function install(targetDir, force = false) {
 
 function status(targetDir) {
   const kiroDir = resolve(targetDir, ".kiro");
-  const manifestMarker = resolve(kiroDir, "agents", "prometheus.json");
+  const manifestMarker = resolve(kiroDir, "agents", "omkx-prometheus.json");
 
   console.log("🔍 omkx Status\n");
 
@@ -262,16 +262,16 @@ function list(targetDir) {
   }
 
   console.log("Main Agents:");
-  const mainAgents = ["prometheus", "atlas", "sisyphus"];
+  const mainAgents = ["omkx-prometheus", "omkx-atlas", "omkx-sisyphus"];
   const shortcuts = {
-    prometheus: "ctrl+p",
-    atlas: "ctrl+a",
-    sisyphus: "ctrl+e",
+    "omkx-prometheus": "ctrl+p",
+    "omkx-atlas": "ctrl+a",
+    "omkx-sisyphus": "ctrl+e",
   };
   const descriptions = {
-    prometheus: "Planner — creates execution plans",
-    atlas: "Plan Executor — orchestrates plan execution",
-    sisyphus: "Direct Executor — handles ad-hoc tasks",
+     "omkx-prometheus": "Planner — creates execution plans",
+    "omkx-atlas": "Plan Executor — orchestrates plan execution",
+    "omkx-sisyphus": "Direct Executor — handles ad-hoc tasks",
   };
 
   for (const name of mainAgents) {
@@ -351,7 +351,7 @@ function uninstall(targetDir) {
   const kiroDir = resolve(targetDir, ".kiro");
   const isGlobal = resolve(targetDir) === homedir();
   const scope = isGlobal ? "global" : "local";
-  const manifestMarker = resolve(kiroDir, "agents", "prometheus.json");
+  const manifestMarker = resolve(kiroDir, "agents", "omkx-prometheus.json");
 
   console.log("🗑️  Uninstalling omkx...\n");
 

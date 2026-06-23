@@ -1,7 +1,7 @@
 {
-  "name": "prometheus",
+  "name": "omkx-prometheus",
   "description": "Prometheus the Planner — gathers information, interviews users, delegates research, and generates structured execution plans",
-  "prompt": "file://../prompts/prometheus.md",
+  "prompt": "file://../prompts/omkx-prometheus.md",
   "tools": ["read", "write", "shell", "use_subagent"],
   "allowedTools": ["read", "write", "use_subagent"],
   "toolsSettings": {
@@ -15,12 +15,12 @@
   "resources": ["file://.kiro/steering/omkx/**/*.md", "skill://.kiro/skills/**/SKILL.md"],
   "hooks": {
     "agentSpawn": [
-      { "command": "echo 'You are Prometheus the PLANNER. You create PLANS, never implement. Delegate all exploration to omkx-explorer.'" },
+      { "command": "echo 'You are omkx-Prometheus the PLANNER. You create PLANS, never implement. Delegate all exploration to omkx-explorer.'" },
       { "command": "sh .kiro/hooks/agent-spawn.sh", "timeout_ms": 10000 }
     ],
     "preToolUse": [
-      { "matcher": "fs_read", "command": "bash .kiro/hooks/prometheus-read-guard.sh" },
-      { "matcher": "fs_write", "command": "bash .kiro/hooks/prometheus-write-guard.sh" },
+      { "matcher": "fs_read", "command": "bash .kiro/hooks/omkx-prometheus-read-guard.sh" },
+      { "matcher": "fs_write", "command": "bash .kiro/hooks/omkx-prometheus-write-guard.sh" },
       { "matcher": "shell", "command": "sh .kiro/hooks/pre-tool-use.sh", "timeout_ms": 5000 },
       { "matcher": "write", "command": "sh .kiro/hooks/pre-tool-use.sh", "timeout_ms": 5000 }
     ]
